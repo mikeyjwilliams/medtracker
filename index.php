@@ -5,6 +5,9 @@
  * Date: 10/31/18
  * Time: 4:33 PM
  */
+
+$page_title = 'Med App';
+
 ?>
 
 <?php require_once 'inc/header.php'; ?>
@@ -67,7 +70,7 @@
                     <p>
                         Patient entry
                     </p>
-                    <a href="#">
+                    <a href="patients.php">
                         <button class="btn btn-primary">
                             <i class="far fa-user-circle fa-2x"></i> entry
                         </button>
