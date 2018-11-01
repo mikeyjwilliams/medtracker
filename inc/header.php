@@ -6,7 +6,7 @@
  * Time: 4:34 PM
  */
 
-$page_title = 'Med App';
+$page_title;
 
 ?>
 
