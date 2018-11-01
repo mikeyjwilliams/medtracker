@@ -5,6 +5,9 @@
  * Date: 11/1/18
  * Time: 9:58 AM
  */
+
+$page_title = 'Patients Entry';
+
 ?>
 
 <?php require_once 'inc/header.php'; ?>
