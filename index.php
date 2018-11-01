@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
-            <h1 class="text-center">Medication Tracker App</h1>
+            <h1 class="text-center"><i class="fas fa-prescription"></i>Med Tracker App</h1>
             <hr>
         </div>
     </div>
@@ -32,7 +32,7 @@
                     </p>
                     <a href="#">
                         <button type="button" class="btn btn-primary">
-                            Med check off
+                            Med <i class="fas fa-check"></i>
                         </button>
                     </a>
                 </div>
@@ -69,7 +69,7 @@
                     </p>
                     <a href="#">
                         <button class="btn btn-primary">
-                            Patient entry
+                            <i class="far fa-user-circle fa-2x"></i> entry
                         </button>
                     </a>
                     <br>
@@ -78,7 +78,7 @@
                     </p>
                     <a href="#">
                         <button class="btn btn-primary">
-                            Doctor Entry
+                            <i class="far fa-user-md fa-2x"></i> Entry
                         </button>
                     </a>
                 </div>
@@ -96,7 +96,7 @@
                     </p>
                     <a href="#">
                         <button type="button" class="btn btn-primary">
-                            Reports
+                            <i class="fas fa-file-chart-line fa-2x"></i> Reports
                         </button>
                     </a>
                 </div>
