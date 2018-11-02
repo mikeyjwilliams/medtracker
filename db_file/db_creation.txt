@@ -1,7 +1,7 @@
 CREATE TABLE Patients(
   id int auto_increment not null ,
   pat_first_name varchar(30) not null,
-  pat_last_name varchar(45) not null ,
+  pat_last_name varchar(45) not null unique,
   primary key (id)
 );
 
