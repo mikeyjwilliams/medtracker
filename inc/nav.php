@@ -26,12 +26,13 @@
                     Add Items
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarMedDropdown">
-                    <a class="dropdown-item" href="#">Add Patient</a>
-                    <a class="dropdown-item" href="#">Add Doctor</a>
+                    <a class="dropdown-item" href="patients.php">Add Patient</a>
+                    <a class="dropdown-item" href="doctors.php">Add Doctor</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Add Medication</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="patient_list.php">Patient List</a>
+                    <a class="dropdown-item" href="doctors_list.php">Doctors List</a>
                 </div>
             </li>
             <li class="nav-item">
