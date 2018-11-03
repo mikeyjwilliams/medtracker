@@ -15,7 +15,7 @@
 
     <div class="collapse navbar-collapse" id="mednavbar">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item <?php if($page == 'home') { echo ' active'; } ?>">
                 <a class="nav-link" href="/index.php">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -30,6 +30,8 @@
                     <a class="dropdown-item" href="#">Add Doctor</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Add Medication</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="patient_list.php">Patient List</a>
                 </div>
             </li>
             <li class="nav-item">
