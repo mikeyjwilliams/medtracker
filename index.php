@@ -7,7 +7,7 @@
  */
 
 $page_title = 'Med App';
-
+$page = 'home';
 ?>
 
 <?php require_once 'inc/header.php'; ?>
