@@ -49,7 +49,7 @@ function report_names()
     include 'conn.php';
 
     try {
-        return $db->query('SELECT pat_first_name, pat_last_name FROM Patients');
+        return $db->query('SELECT id, pat_first_name, pat_last_name FROM Patients');
 
     } catch (Exception $e) {
         echo 'Error! ' . $e->getMessage() . '<br>';
@@ -62,7 +62,7 @@ function report_docs()
     include 'conn.php';
 
     try {
-        return $db->query('SELECT dr_first_name, dr_last_name FROM Doctors');
+        return $db->query('SELECT id, dr_first_name, dr_last_name FROM Doctors');
 
     } catch (Exception $e) {
         echo 'Error! ' . $e->getMessage() . '<br>';
