@@ -8,8 +8,8 @@ A practice app that:
 
 ## project goals
 
-- [ ] build out index page
-- [ ] build database file for MySQL
+- [x] build out index page
+- [x] build database file for MySQL
 - [ ] build out med. form page
 - [ ] build out other forms
 - [ ] reports page
