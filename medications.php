@@ -24,26 +24,26 @@ include 'inc/functions.php';
    <div class="container">
        <div class="form-group row">
            <label for="med-name" class="col-sm-2 col-md-2 col-form-label">Medication Name</label>
-           <input type="text" id="med-name" name="medName" class="col-sm-10 col-md-10" maxlength="60">
+           <input type="text" id="med-name" name="med_name" class="col-sm-10 col-md-10" maxlength="60">
        </div>
        <div class="form-group row">
            <label for="med-rx" class="col-sm-2 col-md-2 col-form-label"><i class="fal fa-prescription"></i> Med RX</label>
-           <input type="text" class="col-sm-10 col-md-10" maxlength="12">
+           <input type="text" name="med_rx" class="col-sm-10 col-md-10" maxlength="12">
        </div>
        <div class="form-group row">
            <label for="med-quantity" class="col-sm-2 col-md-2 col-form-label">Med Quantity</label>
-           <input type="number" id="med-quantity" name="medQuantity" class="col-sm-10 col-md-10" min="1">
+           <input type="number" id="med-quantity" name="med_quantity" class="col-sm-10 col-md-10" min="1">
        </div>
        <div class="form-group row">
            <label for="fill-date" class="col-sm-2 col-md-2 col-form-label">Date Filled</label>
-           <input type="date" id="fill-date" name="fillDate" class="col-sm-10 col-md-10" min="2018-08-01">
+           <input type="date" id="fill-date" name="fill_date" class="col-sm-10 col-md-10" min="2018-08-01">
        </div>
        <div class="form-group row">
            <label for="per-dose" class="col-sm-2 col-md-2 col-form-label">Med per Doseage</label>
-           <input type="number" id="per-dose" name="medPerDose" class="col-sm-10 col-md-10" min="1">
+           <input type="number" id="per-dose" name="med_per_dose" class="col-sm-10 col-md-10" min="1">
        </div>
        <div class="form-group row">
-           <label for="docSelection" class="col-sm-2 col-md-2 col-form-label">Doctor selection</label>
+           <label for="doc-selection" class="col-sm-2 col-md-2 col-form-label">Doctor selection</label>
            <select name="dr_id" id="doc-selection">
                <option value="">Select One</option>
                <?php
