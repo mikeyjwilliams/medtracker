@@ -55,10 +55,21 @@ include 'inc/functions.php';
            </select>
        </div>
        <div class="form-group row">
+           <label for="patient-selection" class="col-sm-2 col-md-2 col-form-label">Patient Selection</label>
            <select name="patient_id" id="patient-selection">
-
+               <option value="">Select</option>
+               <?php
+               foreach (report_names() as $patient) {
+                   echo "<option value='" . $patient['id'] . "'>"
+                       . $patient['pat_last_name'] . ', ' . $patient['pat_first_name'] . "</option>";
+               }
+               ?>
            </select>
        </div>
+       <div class="col-sm-3 col-md-3">
+           <button type="submit" class="btn btn-primary">Submit</button>
+       </div>
+
 
 
 
