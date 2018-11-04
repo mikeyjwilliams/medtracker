@@ -41,7 +41,13 @@ $page = 'patients';
     </div>
 </div>
 </div>
-
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="text-center"><i class="fas fa-user-md"></i> Doctor Add Form</h1>
+        </div>
+    </div>
+</div>
 <form action="doctors.php" method="post">
     <div class="container my-4 my-1">
         <div class="row">
