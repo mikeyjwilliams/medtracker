@@ -27,3 +27,7 @@ require 'inc/functions.php';
         </div>
     </div>
 </div>
+
+
+
+<?php include './inc/footer.php'; ?>
