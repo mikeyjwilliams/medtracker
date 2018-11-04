@@ -43,15 +43,7 @@ require 'inc/functions.php';
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
         </div>
     </div>
-</div>
-
 <?php include './inc/footer.php'; ?>
