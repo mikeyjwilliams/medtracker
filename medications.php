@@ -10,7 +10,22 @@ if($_SERVER['REQUEST_METHOD'] === 'post') {
     $med_name = trim(filter_input(INPUT_POST, 'med_name', FILTER_SANITIZE_STRING));
     $med_rx = trim(filter_input(INPUT_POST, 'med_rx', FILTER_SANITIZE_STRING));
     $med_quantity = trim(filter_input(INPUT_POST, 'med_quantity', FILTER_SANITIZE_NUMBER_INT));
+    $med_date = trim(filter_input(INPUT_POST, 'fill_date', FILTER_SANITIZE_STRING));
+    $med_per_dose = trim(filter_input(INPUT_POST, 'med_per_dose', FILTER_SANITIZE_NUMBER_INT));
+    $dr_id = trim(filter_input(INPUT_POST, 'dr_id', FILTER_SANITIZE_NUMBER_INT));
+    $patient_id = trim(filter_input(INPUT_POST, 'patient_id', FILTER_SANITIZE_NUMBER_INT));
 
+    if ( empty($med_name) || empty($med_rx) || empty($med_quantity) || empty($med_date) || empty($med_per_dose) ||
+        empty($dr_id) || empty($patient_id)) {
+        $error_message = 'Please make sure to fill out all fields. Med name, Med Rx, Med Quantity,\n' .
+            ' Med Date, Med Per Dose, Dr Name, and Patient Name.';
+    } else {
+        if(add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_dose, $dr_id, $patient_id)) {
+            header('Location: medication_list.php');
+        } else {
+            $error_message = 'Could not add Medication';
+        }
+    }
 }
 
 $page_title = 'Meds Form | Med App';
