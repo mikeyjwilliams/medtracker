@@ -28,7 +28,7 @@ require 'inc/functions.php';
                     <tbody>
                     <tr scope="row">
                         <th scope="row">First Name</th>
-                       <?php foreach (report_name() as $first_name) {
+                       <?php foreach (report_names() as $first_name) {
                            echo '<td>' . $first_name['pat_first_name'] . '</td>';
                        }
                        ?>
