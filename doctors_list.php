@@ -20,13 +20,31 @@ require 'inc/functions.php';
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <ul>
+                                <?php foreach (report_docs() as $first_name) { ?>
+                                    <?php echo '<li>' . $first_name['dr_first_name'] . '</li>'; ?>
 
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <?php foreach (report_docs() as $last_name) { ?>
+                                    <?php echo '<li>' . $last_name['dr_last_name'] . '</li>'; ?>
+                                <?php }  ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
 
 
