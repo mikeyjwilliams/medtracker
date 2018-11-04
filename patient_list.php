@@ -36,7 +36,7 @@ require 'inc/functions.php';
 
                     <tr scope="row">
                         <th scope="row">Last Name</th>
-                        <?php foreach (report_name() as $last_name) {
+                        <?php foreach (report_names() as $last_name) {
                             echo '<td>' . $last_name['pat_last_name'] . '</td>';
                         }
                         ?>
