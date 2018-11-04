@@ -15,7 +15,7 @@ if ( empty($first_name) || empty($last_name)) {
     $error_message = 'Please fill out First, Last name.';
     } else {
         if (add_doc($first_name, $last_name)) {
-        header('Location: patient_list.php');
+        header('Location: doctors_list.php');
         } else {
         $error_message = 'Could not add name';
         }
