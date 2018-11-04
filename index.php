@@ -51,7 +51,7 @@ $page = 'home';
                             Need to enter a new medication?<br>
                             *please add dr. and patient first.
                         </p>
-                        <a href="#">
+                        <a href="medications.php">
                             <button type="button" class="btn btn-primary">
                                 Medication Entry
                             </button>
@@ -79,7 +79,7 @@ $page = 'home';
                     <p>
                         Doctor Entry
                     </p>
-                    <a href="#">
+                    <a href="doctors.php">
                         <button class="btn btn-primary">
                             <i class="far fa-user-md fa-2x"></i> Entry
                         </button>
