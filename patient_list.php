@@ -24,25 +24,31 @@ require 'inc/functions.php';
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <table class="table">
-                    <tbody>
-                    <tr scope="row">
-                        <th scope="row">First Name</th>
-                       <?php foreach (report_names() as $first_name) {
-                           echo '<td>' . $first_name['pat_first_name'] . '</td>';
-                       }
-                       ?>
-                    </tr>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <ul>
+                            <?php foreach (report_names() as $first_name) { ?>
+                                <?php echo '<li>' . $first_name['pat_first_name'] . '</li>'; ?>
 
-                    <tr scope="row">
-                        <th scope="row">Last Name</th>
-                        <?php foreach (report_names() as $last_name) {
-                            echo '<td>' . $last_name['pat_last_name'] . '</td>';
-                        }
-                        ?>
-                    </tr>
-                    </tbody>
-                </table>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <?php foreach (report_names() as $last_name) { ?>
+                                    <?php echo '<li>' . $last_name['pat_last_name'] . '</li>'; ?>
+                                <?php }  ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
             </div>
         </div>
     </div>
