@@ -28,14 +28,14 @@ function add_name($pat_first_name, $pat_last_name)
     return true;
 }
 
-function add_doc($doc_first_name, $doc_last_name) {
+function add_doc($dr_first_name, $dr_last_name) {
     include 'conn.php';
     $sql = "INSERT INTO Doctors(dr_first_name, dr_last_name) 
               VALUES(?, ?)";
     try {
         $results = $db->prepare($sql);
-        $results->bindValue(1,$doc_first_name, PDO::PARAM_STR);
-        $results->bindValue(2, $doc_last_name, PDO::PARAM_STR);
+        $results->bindValue(1,$dr_first_name, PDO::PARAM_STR);
+        $results->bindValue(2, $dr_last_name, PDO::PARAM_STR);
         $results->execute();
     } catch(Exception $e) {
         echo 'Error! ' . $e->getMessage() . "<br>";
