@@ -29,7 +29,7 @@
                     <a class="dropdown-item" href="patients.php">Add Patient</a>
                     <a class="dropdown-item" href="doctors.php">Add Doctor</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Add Medication</a>
+                    <a class="dropdown-item" href="medications.php">Add Medication</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="patient_list.php">Patient List</a>
                     <a class="dropdown-item" href="doctors_list.php">Doctors List</a>
