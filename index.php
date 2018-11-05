@@ -97,7 +97,7 @@ $page = 'home';
                         Reports of when, what, and more<br>
                         about your meds.
                     </p>
-                    <a href="#">
+                    <a href="reports.php">
                         <button type="button" class="btn btn-primary">
                             <i class="fas fa-file-chart-line fa-2x"></i> Reports
                         </button>
