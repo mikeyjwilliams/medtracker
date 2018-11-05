@@ -7,6 +7,8 @@
  */
 include 'inc/strap.php';
 
+$first_name = $last_name = '';
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = trim(filter_input(INPUT_POST, 'patientFirstName', FILTER_SANITIZE_STRING));
     $last_name = trim(filter_input(INPUT_POST, 'patientLastName', FILTER_SANITIZE_STRING));
@@ -54,13 +56,15 @@ $page = 'patients';
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label for="patientFirstName">Patient First Name</label>
-                    <input type="text" class="form-control" name="patientFirstName" id="patientFirstName" placeholder="John" >
+                    <input type="text" class="form-control" name="patientFirstName" id="patientFirstName" placeholder="John"
+                    value="<?php echo htmlspecialchars($first_name); ?>">
                 </div>
             </div>
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label for="patientLastName">Patient Last Name</label>
-                    <input type="text" class="form-control" name="patientLastName" id="patientLastName" placeholder="Smith" >
+                    <input type="text" class="form-control" name="patientLastName" id="patientLastName" placeholder="Smith"
+                    value="<?php echo htmlspecialchars($last_name); ?>">
                 </div>
             </div>
         </div>
