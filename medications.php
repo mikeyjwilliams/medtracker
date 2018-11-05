@@ -32,7 +32,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 $page_title = 'Meds Form | Med App';
 $page = 'meds_form';
 
-include 'inc/functions.php';
 
 ?>
 
