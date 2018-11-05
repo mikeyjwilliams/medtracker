@@ -47,16 +47,16 @@ function add_doc($dr_first_name, $dr_last_name) {
 function add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_dose, $dr_id, $patient_id) {
     include 'conn.php';
     $sql = 'INSERT INTO Medications(`med_name`, `med_rx`, `med_quantity`, `med_fill_date`, `med_per_dose`, `p_id`, `d_id`)
-            values(?, ?, ?, ?, ?, ?, ?)';
+            VALUES (:med_name, :med_rx, :med_quant, :fill_date, :dosage, :p_id, :d_id)';
     try {
         $results = $db->prepare($sql);
-        $results->bindValue(1, $med_name, PDO::PARAM_STR);
-        $results->bindValue(2, $med_rx, PDO::PARAM_STR);
-        $results->bindValue(3, $med_quantity, PDO::PARAM_INT);
-        $results->bindValue(4, $med_date, PDO::PARAM_STR);
-        $results->bindValue(5, $med_per_dose, PDO::PARAM_INT);
-        $results->bindValue(6, $p_id, PDO::PARAM_INT);
-        $results->bindValue(7, $d_id, PDO::PARAM_INT);
+        $results->bindValue(':med_name', $med_name, PDO::PARAM_STR);
+        $results->bindValue(':med_rx', $med_rx, PDO::PARAM_STR);
+        $results->bindValue(':med_quant', $med_quantity, PDO::PARAM_STR); // Decimal
+        $results->bindValue(':fill_date', $med_date, PDO::PARAM_STR);
+        $results->bindValue(':dosage', $med_per_dose, PDO::PARAM_STR); // Decimal
+        $results->bindValue(':p_id', $dr_id, PDO::PARAM_INT);
+        $results->bindValue(':d_id', $patient_id, PDO::PARAM_INT);
         $results->execute();
     } catch(Exception $e) {
         echo 'Error! ' . $e->getMessage() . "<br>";
@@ -65,12 +65,11 @@ function add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_d
     return true;
 }
 
-function report_names()
-{
+function report_names() {
     include 'conn.php';
-
+    $sql = 'SELECT id, pat_first_name, pat_last_name FROM Patients';
     try {
-        $patients = $db->prepare('SELECT id, pat_first_name, pat_last_name FROM Patients');
+        $patients = $db->prepare($sql);
         $patients->execute();
         $patient_names = $patients->fetchAll();
         return $patient_names;
@@ -81,12 +80,11 @@ function report_names()
     }
 }
 
-function report_docs()
-{
+function report_docs() {
     include 'conn.php';
-
+    $sql =  'SELECT id, dr_first_name, dr_last_name FROM Doctors';
     try {
-        $doctors = $db->prepare('SELECT id, dr_first_name, dr_last_name FROM Doctors');
+        $doctors = $db->prepare($sql);
         $doctors->execute();
         $doctors_names = $doctors->fetchAll();
         return $doctors_names;
