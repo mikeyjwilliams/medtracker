@@ -9,9 +9,9 @@
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $med_name = trim(filter_input(INPUT_POST, 'med_name', FILTER_SANITIZE_STRING));
     $med_rx = trim(filter_input(INPUT_POST, 'med_rx', FILTER_SANITIZE_STRING));
-    $med_quantity = trim(filter_input(INPUT_POST, 'med_quantity', FILTER_SANITIZE_NUMBER_INT));
+    $med_quantity = trim(filter_input(INPUT_POST, 'med_quantity', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
     $med_date = trim(filter_input(INPUT_POST, 'fill_date', FILTER_SANITIZE_STRING));
-    $med_per_dose = trim(filter_input(INPUT_POST, 'med_per_dose', FILTER_SANITIZE_NUMBER_INT));
+    $med_per_dose = trim(filter_input(INPUT_POST, 'med_per_dose', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
     $dr_id = trim(filter_input(INPUT_POST, 'dr_id', FILTER_SANITIZE_NUMBER_INT));
     $patient_id = trim(filter_input(INPUT_POST, 'patient_id', FILTER_SANITIZE_NUMBER_INT));
 
@@ -56,7 +56,7 @@ include 'inc/functions.php';
         </div>
     </div>
 </div>
-<form action="medications.php" method="post">
+<form action="medication_list.php" method="POST">
    <div class="container">
        <div class="form-group row">
            <label for="med-name" class="col-sm-2 col-md-2 col-form-label">Medication Name</label>
@@ -68,7 +68,7 @@ include 'inc/functions.php';
        </div>
        <div class="form-group row">
            <label for="med-quantity" class="col-sm-2 col-md-2 col-form-label">Med Quantity</label>
-           <input type="number" id="med-quantity" name="med_quantity" class="col-sm-10 col-md-10" min="1">
+           <input type="text" id="med-quantity" name="med_quantity" class="col-sm-10 col-md-10">
        </div>
        <div class="form-group row">
            <label for="fill-date" class="col-sm-2 col-md-2 col-form-label">Date Filled</label>
@@ -76,7 +76,7 @@ include 'inc/functions.php';
        </div>
        <div class="form-group row">
            <label for="per-dose" class="col-sm-2 col-md-2 col-form-label">Med per Doseage</label>
-           <input type="number" id="per-dose" name="med_per_dose" class="col-sm-10 col-md-10" min="1">
+           <input type="text" id="per-dose" name="med_per_dose" class="col-sm-10 col-md-10" >
        </div>
        <div class="form-group row">
            <label for="doc-selection" class="col-sm-2 col-md-2 col-form-label">Doctor selection</label>
