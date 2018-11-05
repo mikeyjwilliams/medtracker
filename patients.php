@@ -5,7 +5,7 @@
  * Date: 11/1/18
  * Time: 9:58 AM
  */
-include 'inc/functions.php';
+include 'inc/strap.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = trim(filter_input(INPUT_POST, 'patientFirstName', FILTER_SANITIZE_STRING));

@@ -5,10 +5,8 @@
  * Date: 11/1/18
  * Time: 11:27 AM
  */
-require 'inc/functions.php';
-
+require_once 'inc/strap.php';
 ?>
-
 
 <?php require_once 'inc/header.php'; ?>
 <?php require_once 'inc/nav.php'; ?>

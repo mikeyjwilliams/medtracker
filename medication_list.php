@@ -16,9 +16,9 @@
 
 $med_name = trim(filter_input(INPUT_POST, 'med_name', FILTER_SANITIZE_STRING));
 $med_rx = trim(filter_input(INPUT_POST, 'med_rx', FILTER_SANITIZE_STRING));
-$med_quantity = trim(filter_input(INPUT_POST, 'med_quantity', FILTER_SANITIZE_NUMBER_INT));
+$med_quantity = trim(filter_input(INPUT_POST, 'med_quantity', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
 $med_date = trim(filter_input(INPUT_POST, 'fill_date', FILTER_SANITIZE_STRING));
-$med_per_dose = trim(filter_input(INPUT_POST, 'med_per_dose', FILTER_SANITIZE_NUMBER_INT));
+$med_per_dose = trim(filter_input(INPUT_POST, 'med_per_dose', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
 $dr_id = trim(filter_input(INPUT_POST, 'dr_id', FILTER_SANITIZE_NUMBER_INT));
 $patient_id = trim(filter_input(INPUT_POST, 'patient_id', FILTER_SANITIZE_NUMBER_INT));
 

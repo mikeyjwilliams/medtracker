@@ -5,8 +5,7 @@
  * Date: 11/3/18
  * Time: 10:14 PM
  */
-require 'inc/functions.php';
-
+require_once 'inc/strap.php';
 ?>
 
 

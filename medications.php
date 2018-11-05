@@ -5,6 +5,7 @@
  * Date: 11/4/18
  * Time: 12:24 AM
  */
+require_once './inc/strap.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $med_name = trim(filter_input(INPUT_POST, 'med_name', FILTER_SANITIZE_STRING));
@@ -56,7 +57,7 @@ include 'inc/functions.php';
         </div>
     </div>
 </div>
-<form action="medication_list.php" method="POST">
+<form action="medications.php" method="POST">
    <div class="container">
        <div class="form-group row">
            <label for="med-name" class="col-sm-2 col-md-2 col-form-label">Medication Name</label>
