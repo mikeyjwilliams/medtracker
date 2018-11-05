@@ -17,7 +17,7 @@ if($_SERVER['REQUEST_METHOD'] === 'post') {
 
     if ( empty($med_name) || empty($med_rx) || empty($med_quantity) || empty($med_date) || empty($med_per_dose) ||
         empty($dr_id) || empty($patient_id)) {
-        $error_message = 'Please make sure to fill out all fields. Med name, Med Rx, Med Quantity,\n' .
+        $error_message = "Please make sure to fill out all fields. Med name, Med Rx, Med Quantity,\n" .
             ' Med Date, Med Per Dose, Dr Name, and Patient Name.';
     } else {
         if(add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_dose, $dr_id, $patient_id)) {
@@ -45,7 +45,18 @@ include 'inc/functions.php';
         </div>
     </div>
 </div>
-<form action="medication_list.php" method="post">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <?php
+            if(isset($error_message)) {
+                echo "<h3 class='bg-danger'>" . $error_message . "</h3>";
+            }
+            ?>
+        </div>
+    </div>
+</div>
+<form action="medications.php" method="post">
    <div class="container">
        <div class="form-group row">
            <label for="med-name" class="col-sm-2 col-md-2 col-form-label">Medication Name</label>
