@@ -36,7 +36,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Reports</a>
+                <a class="nav-link" href="report.php">Reports</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
