@@ -44,6 +44,27 @@ function add_doc($dr_first_name, $dr_last_name) {
     return true;
 }
 
+function add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_dose, $dr_id, $patient_id) {
+    include 'conn.php';
+    $sql = 'INSERT INTO Medications(`med_name`, `med_rx`, `med_quantity`, `med_fill_date`, `med_per_dose`, `p_id`, `d_id`)
+            values(?, ?, ?, ?, ?, ?, ?)';
+    try {
+        $results = $db->prepare($sql);
+        $results->bindValue(1, $med_name, PDO::PARAM_STR);
+        $results->bindValue(2, $med_rx, PDO::PARAM_STR);
+        $results->bindValue(3, $med_quantity, PDO::PARAM_INT);
+        $results->bindValue(4, $med_date, PDO::PARAM_STR);
+        $results->bindValue(5, $med_per_dose, PDO::PARAM_INT);
+        $results->bindValue(6, $p_id, PDO::PARAM_INT);
+        $results->bindValue(7, $d_id, PDO::PARAM_INT);
+        $results->execute();
+    } catch(Exception $e) {
+        echo 'Error! ' . $e->getMessage() . "<br>";
+        return false;
+    }
+    return true;
+}
+
 function report_names()
 {
     include 'conn.php';
