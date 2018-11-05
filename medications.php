@@ -6,7 +6,7 @@
  * Time: 12:24 AM
  */
 
-if($_SERVER['REQUEST_METHOD'] === 'post') {
+if($_SERVER['REQUEST_METHOD'] == 'post') {
     $med_name = trim(filter_input(INPUT_POST, 'med_name', FILTER_SANITIZE_STRING));
     $med_rx = trim(filter_input(INPUT_POST, 'med_rx', FILTER_SANITIZE_STRING));
     $med_quantity = trim(filter_input(INPUT_POST, 'med_quantity', FILTER_SANITIZE_NUMBER_INT));
