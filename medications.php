@@ -7,7 +7,10 @@
  */
 require_once './inc/strap.php';
 
+$med_name = $med_rx = $med_quantity = $med_date = $med_per_dose = $dr_id = $patient_id = '';
+
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
     $med_name = trim(filter_input(INPUT_POST, 'med_name', FILTER_SANITIZE_STRING));
     $med_rx = trim(filter_input(INPUT_POST, 'med_rx', FILTER_SANITIZE_STRING));
     $med_quantity = trim(filter_input(INPUT_POST, 'med_quantity', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
@@ -60,23 +63,28 @@ $page = 'meds_form';
    <div class="container">
        <div class="form-group row">
            <label for="med-name" class="col-sm-2 col-md-2 col-form-label">Medication Name</label>
-           <input type="text" id="med-name" name="med_name" class="col-sm-10 col-md-10" maxlength="60">
+           <input type="text" id="med-name" name="med_name" class="col-sm-10 col-md-10" maxlength="60"
+           value="<?php echo htmlspecialchars($med_name); ?>">
        </div>
        <div class="form-group row">
            <label for="med-rx" class="col-sm-2 col-md-2 col-form-label"><i class="fal fa-prescription"></i> Med RX</label>
-           <input type="text" name="med_rx" class="col-sm-10 col-md-10" maxlength="12">
+           <input type="text" name="med_rx" class="col-sm-10 col-md-10" maxlength="12"
+           value="<?php echo htmlspecialchars($med_rx); ?>">
        </div>
        <div class="form-group row">
            <label for="med-quantity" class="col-sm-2 col-md-2 col-form-label">Med Quantity</label>
-           <input type="text" id="med-quantity" name="med_quantity" class="col-sm-10 col-md-10">
+           <input type="text" id="med-quantity" name="med_quantity" class="col-sm-10 col-md-10"
+           value="<?php echo htmlspecialchars($med_quantity); ?>">
        </div>
        <div class="form-group row">
            <label for="fill-date" class="col-sm-2 col-md-2 col-form-label">Date Filled</label>
-           <input type="date" id="fill-date" name="fill_date" class="col-sm-10 col-md-10" min="2018-08-01">
+           <input type="date" id="fill-date" name="fill_date" class="col-sm-10 col-md-10" min="2018-08-01"
+           value="<?php echo htmlspecialchars($med_date); ?>">
        </div>
        <div class="form-group row">
            <label for="per-dose" class="col-sm-2 col-md-2 col-form-label">Med per Doseage</label>
-           <input type="text" id="per-dose" name="med_per_dose" class="col-sm-10 col-md-10" >
+           <input type="text" id="per-dose" name="med_per_dose" class="col-sm-10 col-md-10"
+           value="<?php echo htmlspecialchars($med_per_dose); ?>">
        </div>
        <div class="form-group row">
            <label for="doc-selection" class="col-sm-2 col-md-2 col-form-label">Doctor selection</label>
@@ -84,8 +92,11 @@ $page = 'meds_form';
                <option value="">Select One</option>
                <?php
                foreach (report_docs() as $doctor) {
-                   echo "<option value='" . $doctor['id'] . "'>"
-                       . $doctor['dr_last_name'] . ', ' . $doctor['dr_first_name'] . "</option>";
+                   echo "<option value='" . $doctor['id'] . "'";
+                   if($dr_id == $doctor['id']) {
+                       echo ' Selected';
+                   }
+                  echo ">". $doctor['dr_last_name'] . ', ' . $doctor['dr_first_name'] . "</option>";
                }
                ?>
            </select>
@@ -96,8 +107,11 @@ $page = 'meds_form';
                <option value="">Select</option>
                <?php
                foreach (report_names() as $patient) {
-                   echo "<option value='" . $patient['id'] . "'>"
-                       . $patient['pat_last_name'] . ', ' . $patient['pat_first_name'] . "</option>";
+                   echo "<option value='" . $patient['id'] . "'";
+                   if($patient_id == $patient['id']) {
+                       echo ' Selected';
+                   }
+                 echo ">" . $patient['pat_last_name'] . ', ' . $patient['pat_first_name'] . "</option>";
                }
                ?>
            </select>
