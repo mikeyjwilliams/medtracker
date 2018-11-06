@@ -6,13 +6,13 @@
  * Time: 1:15 AM
  */
 
-//$med_name = $_POST['med_name'];
-//$med_rx = $_POST['med_rx'];
-//$med_quantity = $_POST['med_quantity'];
-//$fill_date = $_POST['fill_date'];
-//$med_per_dose = $_POST['med_per_dose'];
-//$dr_id = $_POST['dr_id'];
-//$patient_id = $_POST['patient_id'];
+$med_name = $_POST['med_name'];
+$med_rx = $_POST['med_rx'];
+$med_quantity = $_POST['med_quantity'];
+$fill_date = $_POST['fill_date'];
+$med_per_dose = $_POST['med_per_dose'];
+$dr_id = $_POST['dr_id'];
+$patient_id = $_POST['patient_id'];
 
 $med_name = trim(filter_input(INPUT_POST, 'med_name', FILTER_SANITIZE_STRING));
 $med_rx = trim(filter_input(INPUT_POST, 'med_rx', FILTER_SANITIZE_STRING));
