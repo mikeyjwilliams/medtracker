@@ -36,7 +36,7 @@ CREATE TABLE Daily_doses(
   dose_date DATE not null,
   dose_stamp TIMESTAMP not null,
   PRIMARY KEY (id),
-  FOREIGN KEY (m_id) REFERENCES Meds(id),
+  FOREIGN KEY (m_id) REFERENCES Medications(id),
   FOREIGN KEY (p_id) REFERENCES Patients(id),
   FOREIGN KEY (d_id) REFERENCES Doctors(id)
 );
