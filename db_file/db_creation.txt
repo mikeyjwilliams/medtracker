@@ -19,9 +19,24 @@ CREATE TABLE Medications(
   med_quantity float(4,1) not null ,
   med_fill_date date not null ,
   med_per_dose float(2,1) not null ,
+  med_mg DECIMAL(5,1) not null,
   p_id int not null ,
   d_id int not null ,
   primary key (id),
   foreign key (p_id) references Patients(id),
   foreign key (d_id) references Doctors(id)
+);
+
+CREATE TABLE Daily_doses(
+  id int auto_increment not null,
+  dose_taken bool not null,
+  m_id int not null,
+  p_id int not null ,
+  d_id int not null ,
+  dose_date DATE not null,
+  dose_stamp TIMESTAMP not null,
+  PRIMARY KEY (id),
+  FOREIGN KEY (m_id) REFERENCES Meds(id),
+  FOREIGN KEY (p_id) REFERENCES Patients(id),
+  FOREIGN KEY (d_id) REFERENCES Doctors(id)
 );
