@@ -20,8 +20,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dr_id = trim(filter_input(INPUT_POST, 'dr_id', FILTER_SANITIZE_NUMBER_INT));
     $patient_id = trim(filter_input(INPUT_POST, 'patient_id', FILTER_SANITIZE_NUMBER_INT));
 
-    if ( empty($med_name) || empty($med_rx) || empty($med_quantity) || empty($med_date) || empty($med_per_dose) ||
-        empty($med_mg) || ($dr_id) || empty($patient_id)) {
+    if ( empty($med_name)  || empty($med_quantity) || empty($med_date) || empty($med_per_dose) ||
+        empty($med_mg) || empty($dr_id) || empty($patient_id)) {
         $error_message = "Please make sure to fill out all fields. Med name, Med Rx, Med Quantity,\n" .
             ' Med Date, Med Per Dose, MG, Dr Name, and Patient Name.';
     } else {
