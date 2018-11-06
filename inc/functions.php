@@ -55,7 +55,7 @@ function add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_d
         $results->bindValue(':med_quant', $med_quantity, PDO::PARAM_STR); // Decimal
         $results->bindValue(':fill_date', $med_date, PDO::PARAM_STR);
         $results->bindValue(':dosage', $med_per_dose, PDO::PARAM_STR); // Decimal
-        $result->bindValue(':med_mg', $mg, PDO::PARAM_STR);
+        $results->bindValue(':med_mg', $mg, PDO::PARAM_STR);
         $results->bindValue(':p_id', $patient_id, PDO::PARAM_INT);
         $results->bindValue(':d_id', $dr_id, PDO::PARAM_INT);
         $results->execute();
