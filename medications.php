@@ -16,15 +16,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     $med_quantity = trim(filter_input(INPUT_POST, 'med_quantity', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
     $med_date = trim(filter_input(INPUT_POST, 'fill_date', FILTER_SANITIZE_STRING));
     $med_per_dose = trim(filter_input(INPUT_POST, 'med_per_dose', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
+    $med_mg = trim(filter_input(INPUT_POST, 'med_mg', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION));
     $dr_id = trim(filter_input(INPUT_POST, 'dr_id', FILTER_SANITIZE_NUMBER_INT));
     $patient_id = trim(filter_input(INPUT_POST, 'patient_id', FILTER_SANITIZE_NUMBER_INT));
 
     if ( empty($med_name) || empty($med_rx) || empty($med_quantity) || empty($med_date) || empty($med_per_dose) ||
-        empty($dr_id) || empty($patient_id)) {
+        empty($med_mg) || ($dr_id) || empty($patient_id)) {
         $error_message = "Please make sure to fill out all fields. Med name, Med Rx, Med Quantity,\n" .
-            ' Med Date, Med Per Dose, Dr Name, and Patient Name.';
+            ' Med Date, Med Per Dose, MG, Dr Name, and Patient Name.';
     } else {
-        if(add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_dose, $dr_id, $patient_id)) {
+        if(add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_dose, $med_mg, $dr_id, $patient_id)) {
             header('Location: medication_list.php');
         } else {
             $error_message = 'Could not add Medication';
@@ -85,6 +86,11 @@ $page = 'meds_form';
            <label for="per-dose" class="col-sm-2 col-md-2 col-form-label">Med per Doseage</label>
            <input type="text" id="per-dose" name="med_per_dose" class="col-sm-10 col-md-10"
            value="<?php echo htmlspecialchars($med_per_dose); ?>">
+       </div>
+       <div class="form-group row">
+           <label for="med-mg" class="col-sm-2 col-md-2 col-form-label">Med Mg.</label>
+           <input type="text" id="med-mg" name="med_mg" class="col-sm-10 col-md-10"
+           value="<?php echo htmlspecialchars($med_mg); ?>">
        </div>
        <div class="form-group row">
            <label for="doc-selection" class="col-sm-2 col-md-2 col-form-label">Doctor selection</label>
