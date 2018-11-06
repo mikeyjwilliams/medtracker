@@ -1,0 +1,49 @@
+CREATE TABLE Patients(
+  id int auto_increment not null,
+  pat_first_name varchar(35) not null ,
+  pat_last_name varchar(35) not null,
+  primary key (id)
+);
+
+CREATE TABLE Doctors(
+  id int auto_increment not null ,
+  dr_first_name varchar(35) not null,
+  dr_last_name varchar(35) not null,
+  primary key (id)
+);
+
+CREATE TABLE Meds(
+  id int auto_increment not null ,
+  med_name varchar(40) not null,
+  med_rx varchar(12) not null ,
+  med_quantity DECIMAL(4,1) not null,
+  fill_date Date not null,
+  med_amount DECIMAL(3,1) not null,
+  mg DECIMAL(5,1) not null,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE Daily_doses(
+  id int auto_increment not null,
+  dose_taken bool not null,
+  m_id int not null,
+  p_id int not null ,
+  d_id int not null ,
+  dose_date DATE not null,
+  dose_stamp TIMESTAMP not null,
+  PRIMARY KEY (id),
+  FOREIGN KEY (m_id) REFERENCES Meds(id),
+  FOREIGN KEY (p_id) REFERENCES Patients(id),
+  FOREIGN KEY (d_id) REFERENCES Doctors(id)
+);
+
+CREATE TABLE Pharmacys(
+  id int auto_increment not null,
+  p_id int not null,
+  d_id int not null,
+  m_id int not null,
+  PRIMARY KEY (id),
+  FOREIGN KEY (p_id) REFERENCES Patients(id),
+  FOREIGN KEY (d_id) REFERENCES Doctors(id),
+  FOREIGN KEY (m_id) REFERENCES Meds(id)
+);
