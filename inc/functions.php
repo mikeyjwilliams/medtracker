@@ -44,10 +44,10 @@ function add_doc($dr_first_name, $dr_last_name) {
     return true;
 }
 
-function add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_dose, $dr_id, $patient_id) {
+function add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_dose, $mg, $dr_id, $patient_id) {
     include 'conn.php';
-    $sql = 'INSERT INTO Medications(`med_name`, `med_rx`, `med_quantity`, `med_fill_date`, `med_per_dose`, `p_id`, `d_id`)
-            VALUES (:med_name, :med_rx, :med_quant, :fill_date, :dosage, :p_id, :d_id)';
+    $sql = 'INSERT INTO Medications(`med_name`, `med_rx`, `med_quantity`, `med_fill_date`, `med_per_dose`, `med_mg`, `p_id`, `d_id`)
+            VALUES (:med_name, :med_rx, :med_quant, :fill_date, :dosage, :med_mg, :p_id, :d_id)';
     try {
         $results = $db->prepare($sql);
         $results->bindValue(':med_name', $med_name, PDO::PARAM_STR);
@@ -55,8 +55,9 @@ function add_medication($med_name, $med_rx, $med_quantity, $med_date, $med_per_d
         $results->bindValue(':med_quant', $med_quantity, PDO::PARAM_STR); // Decimal
         $results->bindValue(':fill_date', $med_date, PDO::PARAM_STR);
         $results->bindValue(':dosage', $med_per_dose, PDO::PARAM_STR); // Decimal
-        $results->bindValue(':d_id', $dr_id, PDO::PARAM_INT);
+        $result->bindValue(':med_mg', $mg, PDO::PARAM_STR);
         $results->bindValue(':p_id', $patient_id, PDO::PARAM_INT);
+        $results->bindValue(':d_id', $dr_id, PDO::PARAM_INT);
         $results->execute();
     } catch(Exception $e) {
         echo 'Error! ' . $e->getMessage() . "<br>";
