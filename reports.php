@@ -42,11 +42,18 @@ require_once './inc/strap.php';
 </div>
 </form>
 <?php
-if(isset($report)) { ?>
-    <div class="container">
-        <div class="row">
+if(isset($report) == $full_reports())  { ?>
 
+    <div class="container">
+        <?php foreach($full_reports as $full_report) { ?>
+        <div class="table row">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
         </div>
+        <?php } ?>
     </div>
 <?php }  ?>
 
