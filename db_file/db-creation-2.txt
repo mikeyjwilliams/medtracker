@@ -50,8 +50,8 @@ CREATE TABLE Daily_doses(
 
 CREATE TABLE Daily_quantities (
     id int auto_increment not null,
-    dd_id int not null,
+    m_id int not null,
     daily_count DECIMAL(5,1) not null,
     PRIMARY KEY (id),
-    FOREIGN KEY (dd_id) REFERENCES Daily_doses(id)
+    FOREIGN KEY (m_id) REFERENCES Medications(id)
 );
