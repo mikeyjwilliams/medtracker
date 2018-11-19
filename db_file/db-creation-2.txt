@@ -19,6 +19,7 @@ CREATE TABLE Medications(
   med_fill_date date not null ,
   med_per_dose float(2,1) not null ,
   med_mg DECIMAL(5,1) not null,
+  med_quantity DECIMAL(5,1) not null,
   p_id int not null ,
   d_id int not null ,
   primary key (id),
@@ -26,13 +27,13 @@ CREATE TABLE Medications(
   foreign key (d_id) references Doctors(id)
 );
 
-CREATE TABLE Med_quantities (
-  id int auto_increment not null,
-  med_id int not null,
-  med_quantity DECIMAL(5,1) not null,
-  PRIMARY KEY (id),
-  FOREIGN KEY (med_id) REFERENCE Medications(id)
-  );
+-- CREATE TABLE Med_quantities (
+--  id int auto_increment not null,
+--  med_id int not null,
+--  med_quantity DECIMAL(5,1) not null,
+--  PRIMARY KEY (id),
+--  FOREIGN KEY (med_id) REFERENCES Medications(id)
+--  );
 
 CREATE TABLE Daily_doses(
   id int auto_increment not null,
@@ -40,6 +41,7 @@ CREATE TABLE Daily_doses(
   m_id int not null,
   p_id int not null ,
   d_id int not null ,
+  daily_count DECIMAL(5,1) not null,
   dose_date DATE not null,
   dose_stamp TIMESTAMP not null,
   PRIMARY KEY (id),
@@ -48,10 +50,10 @@ CREATE TABLE Daily_doses(
   FOREIGN KEY (d_id) REFERENCES Doctors(id)
 );
 
-CREATE TABLE Daily_quantities (
-    id int auto_increment not null,
-    m_id int not null,
-    daily_count DECIMAL(5,1) not null,
-    PRIMARY KEY (id),
-    FOREIGN KEY (m_id) REFERENCES Medications(id)
-);
+-- CREATE TABLE Daily_quantities (
+--    id int auto_increment not null,
+--   m_id int not null,
+--    daily_count DECIMAL(5,1) not null,
+--    PRIMARY KEY (id),
+--    FOREIGN KEY (m_id) REFERENCES Medications(id)
+-- );
