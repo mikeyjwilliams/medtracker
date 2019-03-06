@@ -6,8 +6,7 @@
  * Time: 4:34 PM
  */
 
-$page_title;
-
+if(!isset($page_title)) { echo 'Med App'; } 
 ?>
 
 <!doctype html>
