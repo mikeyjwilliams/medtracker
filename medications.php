@@ -65,36 +65,36 @@ $page = 'meds_form';
        <div class="form-group row">
            <label for="med-name" class="col-sm-2 col-md-2 col-form-label">Medication Name</label>
            <input type="text" id="med-name" name="med_name" class="col-sm-10 col-md-10" maxlength="60"
-           value="<?php echo htmlspecialchars($med_name); ?>">
+           value="<?php echo htmlspecialchars($med_name); ?>" required>
        </div>
        <div class="form-group row">
            <label for="med-rx" class="col-sm-2 col-md-2 col-form-label"><i class="fal fa-prescription"></i> Med RX</label>
            <input type="text" name="med_rx" class="col-sm-10 col-md-10" maxlength="12"
-           value="<?php echo htmlspecialchars($med_rx); ?>">
+           value="<?php echo htmlspecialchars($med_rx); ?>" required>
        </div>
        <div class="form-group row">
            <label for="med-quantity" class="col-sm-2 col-md-2 col-form-label">Med Quantity</label>
            <input type="text" id="med-quantity" name="med_quantity" class="col-sm-10 col-md-10"
-           value="<?php echo htmlspecialchars($med_quantity); ?>">
+           value="<?php echo htmlspecialchars($med_quantity); ?>" required>
        </div>
        <div class="form-group row">
            <label for="fill-date" class="col-sm-2 col-md-2 col-form-label">Date Filled</label>
            <input type="date" id="fill-date" name="fill_date" class="col-sm-10 col-md-10" min="2018-08-01"
-           value="<?php echo htmlspecialchars($med_date); ?>">
+           value="<?php echo htmlspecialchars($med_date); ?>" required>
        </div>
        <div class="form-group row">
            <label for="per-dose" class="col-sm-2 col-md-2 col-form-label">Med per Doseage</label>
            <input type="text" id="per-dose" name="med_per_dose" class="col-sm-10 col-md-10"
-           value="<?php echo htmlspecialchars($med_per_dose); ?>">
+           value="<?php echo htmlspecialchars($med_per_dose); ?>" required>
        </div>
        <div class="form-group row">
            <label for="med-mg" class="col-sm-2 col-md-2 col-form-label">Med Mg.</label>
            <input type="text" id="med-mg" name="med_mg" class="col-sm-10 col-md-10"
-           value="<?php echo htmlspecialchars($med_mg); ?>">
+           value="<?php echo htmlspecialchars($med_mg); ?>" required>
        </div>
        <div class="form-group row">
            <label for="doc-selection" class="col-sm-2 col-md-2 col-form-label">Doctor selection</label>
-           <select name="dr_id" id="doc-selection">
+           <select name="dr_id" id="doc-selection" required>
                <option value="">Select One</option>
                <?php
                foreach (report_docs() as $doctor) {
@@ -109,7 +109,7 @@ $page = 'meds_form';
        </div>
        <div class="form-group row">
            <label for="patient-selection" class="col-sm-2 col-md-2 col-form-label">Patient Selection</label>
-           <select name="patient_id" id="patient-selection">
+           <select name="patient_id" id="patient-selection" required>
                <option value="">Select</option>
                <?php
                foreach (report_names() as $patient) {
