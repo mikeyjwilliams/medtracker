@@ -6,6 +6,7 @@
  * Time: 11:27 AM
  */
 require_once 'inc/strap.php';
+$page_title = 'Patient List';
 ?>
 
 <?php require_once 'inc/header.php'; ?>
