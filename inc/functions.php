@@ -98,13 +98,15 @@ function report_docs() {
 
 function full_report() {
     include 'conn.php';
-    $sql = 'SELECT m.id as med_id, m.med_name as name, m.med_rx as rx, m.med_quantity as quantity, m.med_fill_date as fill_date,
-       m.med_per_dose as dosage, Truncate(SUM(m.med_quantity) - SUM(m.med_per_dose),1) as med_subtract,
-       d.id as d_id, d.dr_first_name as dr_first, d.dr_last_name as dr_last,
-       p.id as p_id, p.pat_first_name as patient_first, p.pat_last_name as patient_last
-       FROM Medications as m
-       JOIN Doctors as d ON d.id = m.d_id
-       JOIN Patients as p  ON p.id = m.p_id
-       GROUP BY med_id';
+    $sql = 'SELECT m.id AS med_id, m.med_name AS name, m.med_rx AS rx, m.med_quantity AS quantity, m.med_fill_date AS fill_date,
+    m.med_per_dose as dosage, TRUNCATE(m.med_quantity - (dd.dose_taken * m.med_per_dose), 2) AS med_subtract,
+    d.id AS d_id, d.dr_first_name AS dr_first, d.dr_last_name AS dr_last,
+    p.id AS p_id, p.pat_first_name AS patient_first, p.pat_last_name AS patient_last,
+    dd.dose_taken AS taken
+    FROM Medications AS m
+    JOIN Doctors AS d ON d.id = m.d_id
+    JOIN Patients AS p  ON p.id = m.p_id
+    JOIN Daily_doses AS dd ON dd.id = m.d_id
+    GROUP BY med_id';
 
 }
