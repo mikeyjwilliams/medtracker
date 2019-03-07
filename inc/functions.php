@@ -107,6 +107,6 @@ function full_report() {
     JOIN Doctors AS d ON d.id = m.d_id
     JOIN Patients AS p  ON p.id = m.p_id
     JOIN Daily_doses AS dd ON dd.id = m.d_id
-    GROUP BY med_id';
+    GROUP BY med_id ';
 
 }
