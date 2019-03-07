@@ -7,7 +7,7 @@
  */
 require_once './inc/strap.php';
 
-$med_name = $med_rx = $med_quantity = $med_date = $med_per_dose = $dr_id = $patient_id = '';
+$med_name = $med_rx = $med_quantity = $med_date = $med_per_dose = $med_mg = $dr_id = $patient_id = '';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
